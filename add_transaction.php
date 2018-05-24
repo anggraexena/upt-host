@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Unit Product</title>
+    <meta content="UPT - Yuk transaksi di Unit Product RPL" property="og:description"/>
+    <meta content="https://thumbs.dreamstime.com/b/handshake-business-people-partners-hand-shaking-meeting-agreement-symbol-successful-transaction-flat-design-vector-85843722.jpg" property="og:image"/>
     <link href="upe.png" rel="shortcut icon">
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/dataTables.bootstrap4.css" rel="stylesheet">
@@ -43,7 +45,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="php/logout.php">
               <i class="fa fa-fw fa-sign-out-alt"></i>Logout</a>
           </li>
         </ul>
@@ -54,39 +56,58 @@
       <div class="container-fluid py-3">
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-hand"></i> Unit Product Transaction</div>
+            <i class="fa fa-handshake"></i> Unit Product Transaction</div>
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <tr>
-                    <td>Type Transaction</td>
-                    <td>
-                      <select class="custom-select">
-                        <option selected>Choose...</option>
-                        <option value="1">Fotocopy</option>
-                        <option value="2">Print</option>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Colour</td>
-                    <td><input type="number" class="form-control" name="colour" required autofocus></td>
-                  </tr>
-                  <tr>
-                    <td>Black White</td>
-                    <td><input type="number" class="form-control" name="bw" required autofocus></td>
-                  </tr>
-                  <tr>
-                    <td>Total</td>
-                    <td><input type="text" class="form-control" name="total" disabled></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                      <button type="submit" class="btn btn-success float-right"><i class="fa fa-plus"></i> Add</button>
-                    </td>
-                  </tr>
-              </table>
-            </div>
+            <form class="form-horizontal" role="form" method="POST" action="php/add_transaction.php">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <label>Transaction Type</label>
+                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              <select class="form-control" name="type_transaction">
+                                  <option>Fotocopy</option>
+                                  <option>Print</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <label>Colour</label>
+                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              <input type="number" class="form-control" name="colour" >
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <label>Black White</label>
+                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              <input type="number" class="form-control" name="bw">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <label>Total</label>
+                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              <input type="text" class="form-control" name="total" disabled>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row" style="padding-top: 1rem">
+                  <div class="col-md-12">
+                      <button type="submit" class="btn btn-success" name="add"><i class="fa fa-plus"></i> Add</button>
+                  </div>
+              </div>
+          </form>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>

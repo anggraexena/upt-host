@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Unit Product</title>
+    <meta content="UPT - Yuk transaksi di Unit Product RPL" property="og:description"/>
+    <meta content="https://thumbs.dreamstime.com/b/handshake-business-people-partners-hand-shaking-meeting-agreement-symbol-successful-transaction-flat-design-vector-85843722.jpg" property="og:image"/>
     <link href="upe.png" rel="shortcut icon">
     <style media="screen">
       body{
@@ -19,7 +21,7 @@
     <div class="container py-5" style="margin-top:100px;">
       <div class="col-md-6 card rounded-5 mx-auto">
         <div class="card-body">
-          <form class="form-horizontal" role="form" method="POST" action="/login">
+          <form class="form-horizontal" role="form" method="POST" action="php/login.php">
               <div class="row">
                   <div class="col-md-12">
                       <h2 class="text-center">Admin Unit Product</h2>
@@ -30,7 +32,7 @@
                   <div class="col-md-12">
                       <div class="form-group has-danger">
                           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                              <input type="text" name="email" class="form-control" name="username" id="email" placeholder="Username" required autofocus>
+                              <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
                           </div>
                       </div>
                   </div>
@@ -40,7 +42,7 @@
                       <div class="form-group">
                           <label class="sr-only" for="password">Password</label>
                           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                              <input type="password" name="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                              <input type="password" class="form-control" name="password" placeholder="Password" required>
                           </div>
                       </div>
                   </div>
@@ -57,7 +59,7 @@
               </div>
               <div class="row" style="padding-top: 1rem">
                   <div class="col-md-12">
-                      <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> Login</button>
+                      <button type="submit" class="btn btn-success" name="login"><i class="fa fa-sign-in"></i> Login</button>
                   </div>
               </div>
           </form>

@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Unit Product</title>
+    <meta content="UPT - Yuk transaksi di Unit Product RPL" property="og:description"/>
+    <meta content="https://thumbs.dreamstime.com/b/handshake-business-people-partners-hand-shaking-meeting-agreement-symbol-successful-transaction-flat-design-vector-85843722.jpg" property="og:image"/>
     <link href="upe.png" rel="shortcut icon">
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/dataTables.bootstrap4.css" rel="stylesheet">
@@ -43,7 +45,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="php/logout.php">
               <i class="fa fa-fw fa-sign-out-alt"></i>Logout</a>
           </li>
         </ul>
@@ -58,10 +60,16 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <?php
+                    include 'php/config.php';
+
+                    $sql = mysqli_query($con, "SELECT * FROM transaction");
+
+                  ?>
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Type Transaction</th>
+                    <th>Transaction Type</th>
                     <th>Colour</th>
                     <th>Black White</th>
                     <th>Date</th>
@@ -73,7 +81,7 @@
                 <tfoot>
                   <tr>
                     <th>No</th>
-                    <th>Type Transaction</th>
+                    <th>Transaction Type</th>
                     <th>Colour</th>
                     <th>Black White</th>
                     <th>Date</th>
@@ -83,27 +91,16 @@
                   </tr>
                 </tfoot>
                 <tbody>
+                <?php
+                    foreach($sql as $key => $x){
+                ?>
                   <tr>
-                    <td>Zenaida Frank</td>
-                    <td>Software Engineer</td>
-                    <td>New York</td>
-                    <td>63</td>
-                    <td>2010/01/04</td>
-                    <td>$125,250</td>
-                    <td>
-                      <button type="submit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>
-                    </td>
-                    <td>
-                      <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Anggraeni Xena</td>
-                    <td>Android Developer</td>
-                    <td>New York</td>
-                    <td>16</td>
-                    <td>2018/01/05</td>
-                    <td>$230,900</td>
+                    <td><?php echo $x['id']; ?></td>
+                    <td><?php echo $x['transaction_type']; ?></td>
+                    <td><?php echo $x['colour']; ?></td>
+                    <td><?php echo $x['blackwhite']; ?></td>
+                    <td><?php echo date('Y/m/d  h.i', strtotime($x['date'])); ?></td>
+                    <td><?php echo $x['total']; ?></td>
                     <td>
                       <button type="submit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>
                     </td>
@@ -111,6 +108,9 @@
                       <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</button>
                     </td>
                   </tr>
+                <?php
+                    }
+                ?>
                 </tbody>
               </table>
             </div>
