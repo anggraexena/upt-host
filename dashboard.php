@@ -91,6 +91,8 @@
                   </tr>
                 </tfoot>
                 <tbody>
+                  <form class="" action="php/delete.php" >
+
                 <?php
                     foreach($sql as $key => $x){
                 ?>
@@ -102,15 +104,16 @@
                     <td><?php echo date('Y/m/d  h.i', strtotime($x['date'])); ?></td>
                     <td><?php echo $x['total']; ?></td>
                     <td>
-                      <button type="submit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>
+                      <a href="#" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
                     </td>
                     <td>
-                      <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</button>
+                      <a href="php/delete.php?id=<?php echo $x['id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                     </td>
                   </tr>
                 <?php
                     }
                 ?>
+                  </form>
                 </tbody>
               </table>
             </div>
