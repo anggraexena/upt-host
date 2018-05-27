@@ -73,8 +73,7 @@
                     <th>Colour</th>
                     <th>Black White</th>
                     <th>Date</th>
-                    <th>Total</th>
-                    <th></th>
+                    <th>Income</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -85,8 +84,7 @@
                     <th>Colour</th>
                     <th>Black White</th>
                     <th>Date</th>
-                    <th>Total</th>
-                    <th></th>
+                    <th>Income</th>
                     <th></th>
                   </tr>
                 </tfoot>
@@ -94,7 +92,9 @@
                   <form class="" action="php/delete.php" >
 
                 <?php
+                    $total = 0;
                     foreach($sql as $key => $x){
+                    $alltotal = $total += $x['total'];
                 ?>
                   <tr>
                     <td><?php echo $x['id']; ?></td>
@@ -102,15 +102,13 @@
                     <td><?php echo $x['colour']; ?></td>
                     <td><?php echo $x['blackwhite']; ?></td>
                     <td><?php echo date('Y/m/d  h.i', strtotime($x['date'])); ?></td>
-                    <td><?php echo $x['total']; ?></td>
-                    <td>
-                      <a href="#" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
-                    </td>
+                    <td><?php echo "Rp ".$x['total'].",-"; ?></td>
                     <td>
                       <a href="php/delete.php?id=<?php echo $x['id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                     </td>
                   </tr>
                 <?php
+                      $alltotal + $total;
                     }
                 ?>
                   </form>
@@ -118,7 +116,17 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          <?php
+            if($total == 0) {
+          ?>
+          <div class="card-footer small text-muted">Total : <?php echo "Rp 0,-"; ?></div>
+          <?php
+            }else {
+          ?>
+          <div class="card-footer small text-muted">Total : <?php echo "Rp ".$alltotal.",-"; ?></div>
+          <?php
+            }
+          ?>
         </div>
       </div>
     </div>

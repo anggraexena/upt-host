@@ -92,16 +92,6 @@
                       </div>
                   </div>
               </div>
-              <div class="row">
-                  <div class="col-md-12">
-                      <div class="form-group">
-                          <label>Total</label>
-                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                              <input type="text" class="form-control" name="total" disabled>
-                          </div>
-                      </div>
-                  </div>
-              </div>
               <div class="row" style="padding-top: 1rem">
                   <div class="col-md-12">
                       <button type="submit" class="btn btn-success" name="add"><i class="fa fa-plus"></i> Add</button>
