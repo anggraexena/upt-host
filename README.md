@@ -1,3 +1,4 @@
-# unit product
+# Unit Product
 
-Project for homework, with web hosting
+Project for schoolwork, with web hosting.
+its just crd 
